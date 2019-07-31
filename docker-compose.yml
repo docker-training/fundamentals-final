@@ -1,0 +1,23 @@
+version: "3.1"
+services:
+  db:
+    image: neostorm/postgres:1.0
+    networks:
+      - backend
+
+  api:
+    image: neostorm/api:1.0
+    networks:
+      - backend
+    ports:
+      - 8080:8080
+
+  ui:
+    image: neostorm/ui:1.0
+    networks:
+      - backend
+    ports:
+      - 3000:3000
+
+networks:
+  backend:
